@@ -28,7 +28,7 @@ public:
 	Movie();
 
 	void set_date();
-	void print();
+	void print(Movie movie);
 
 	time_t get_date();
 	std::string get_title();
@@ -42,4 +42,3 @@ public:
 	std::string comment;
 	int id;
 };
-

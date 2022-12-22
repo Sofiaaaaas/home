@@ -26,7 +26,6 @@ int Cinema::calculate_profit(std::string day)
     }
     return profit;
 }
-
 void Cinema::add_movie(Movie movie)
 {
     this->movies.push_back(movie);
@@ -36,10 +35,10 @@ void Cinema::sort_by_date()
 {
     Movie tmp;
 
-    int x = 1;
+    int right_order = 1;
     for (int i = movies.size() - 1; i >= 1; i--)
     {
-        for (int j = movies.size() - 1; j >= x; j--)
+        for (int j = movies.size() - 1; j >= right_order; j--)
         {
             time_t time1 = movies[j].get_date();
             time_t time2 = movies[j - 1].get_date();
@@ -51,8 +50,8 @@ void Cinema::sort_by_date()
                 this->movies[j - 1] = tmp;
             }
         }
+        right_order++;
 
-        x++;
     }
 }
 
@@ -87,6 +86,6 @@ void Cinema::print_films()
     for (size_t i = 0; i < movies.size(); i++)
     {
         std::cout << "\nFilm " << i + 1 << ":" << std::endl;
-        movies[i].print();
+        movies[i].print(movies[i]);
     }
 }
